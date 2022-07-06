@@ -102,7 +102,7 @@ if [ $ERR -eq 0 ]; then
   else
     wget https://github.com/silent001/Witty-Pi-3/archive/master.zip -O "${HOME}/Downloads/wittyPi.zip" || ((ERR++))
     unzip "${HOME}/Downloads/wittyPi.zip" -d "${HOME}/Downloads/" \
-    && mv -f "${HOME}/Downloads/Witty-Pi-3-master/Software/wittypi" "${HOME}/Downloads/Witty-Pi-3-master/Software/install.sh" "${DIR}" \
+    && cp -rf "${HOME}/Downloads/Witty-Pi-3-master/Software/wittypi" "${HOME}/Downloads/Witty-Pi-3-master/Software/install.sh" "${DIR}" \
     && rm -r "${HOME}/Downloads/Witty-Pi-3-master" "${HOME}/Downloads/wittyPi.zip" || ((ERR++))
     cd wittypi
     chmod +x wittyPi.sh
