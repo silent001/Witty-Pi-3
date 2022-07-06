@@ -100,8 +100,10 @@ if [ $ERR -eq 0 ]; then
   if [ -d "wittypi" ]; then
     echo 'Seems wittypi is installed already, skip this step.'
   else
-    wget https://www.uugear.com/repo/WittyPi3/LATEST -O wittyPi.zip || ((ERR++))
-    unzip wittyPi.zip -d wittypi || ((ERR++))
+    wget https://github.com/silent001/Witty-Pi-3/archive/master.zip -O "${HOME}/Downloads/wittyPi.zip" || ((ERR++))
+    unzip "${HOME}/Downloads/wittyPi.zip" -d "${HOME}/Downloads/" \
+    && mv -f "${HOME}/Downloads/Witty-Pi-3-master/Software/wittypi" "${HOME}/Downloads/Witty-Pi-3-master/Software/install.sh" "${DIR}" \
+    && rm -r "${HOME}/Downloads/Witty-Pi-3-master" "${HOME}/Downloads/wittyPi.zip" || ((ERR++))
     cd wittypi
     chmod +x wittyPi.sh
     chmod +x daemon.sh
